@@ -85,6 +85,33 @@ const calculatorSlice = createSlice({
         state.waitingForSecondOperand = false;
       }
     },
+    applyPercentage(state) {
+      const currentValue = parseFloat(state.display);
+      if (currentValue === 0) {
+        return;
+      }
+      const result = currentValue / 100;
+      state.display = String(result);
+      state.expression = `${state.expression} % = ${result}`;
+    },
+    backspace(state) {
+      if (state.display.length > 1) {
+        state.display = state.display.slice(0, -1);
+      } else {
+        state.display = "0";
+      }
+      state.expression = state.expression.slice(0, -1);
+    },
+    toggleSign(state) {
+      if (state.display !== "0") {
+        state.display = state.display.startsWith("-")
+          ? state.display.slice(1)
+          : "-" + state.display;
+        state.expression = state.expression.startsWith("-")
+          ? state.expression.slice(1)
+          : "-" + state.expression;
+      }
+    },
   },
 });
 
@@ -113,5 +140,8 @@ export const {
   handleOperator,
   clear,
   calculateResult,
+  applyPercentage,
+  backspace,
+  toggleSign,
 } = calculatorSlice.actions;
 export default calculatorSlice.reducer;

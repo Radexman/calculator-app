@@ -7,13 +7,15 @@ import {
   handleOperator,
   clear,
   calculateResult,
+  applyPercentage,
+  toggleSign,
 } from "../features/calculator/calculatorSlice";
 
 const NumPad = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="grid grid-cols-4 grid-rows-5 gap-4 p-7">
+    <div className="grid grid-cols-4 grid-rows-5 gap-2 rounded-b-2xl p-7 shadow-2xl">
       <button
         onClick={() => dispatch(clear())}
         type="button"
@@ -28,6 +30,7 @@ const NumPad = () => {
         {`()`}
       </button>
       <button
+        onClick={() => dispatch(applyPercentage())}
         type="button"
         className="flex h-14 items-center justify-center rounded-lg bg-slate-lighter text-2xl font-bold duration-200 hover:brightness-105 sm:h-16"
       >
@@ -125,6 +128,7 @@ const NumPad = () => {
         <FaPlus />
       </button>
       <button
+        onClick={() => dispatch(toggleSign())}
         type="button"
         className="flex h-14 items-center justify-center rounded-lg bg-slate-lighter text-2xl font-bold duration-200 hover:brightness-105 sm:h-16"
       >
