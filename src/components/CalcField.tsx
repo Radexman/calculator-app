@@ -1,18 +1,20 @@
 import { FaHistory } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
+import { useAppSelector } from "../app/hooks";
 
 const CalcField = () => {
+  const display = useAppSelector((state) => state.calculator.display);
+  const expression = useAppSelector((state) => state.calculator.expression);
+
   return (
     <div className="p-4">
-      <div className="space-y-4 pt-4 text-right">
-        <p className="text-xl">11 + 78 = 89</p>
-        <p className="text-xl">695 * 14 = 9730</p>
-        <div className="h-1 rounded-3xl bg-slate-light" />
-      </div>
+      <div className="space-y-4 text-right"></div>
+      <p className="py-2 text-right">{expression}</p>
+      <div className="h-2 rounded-3xl bg-slate-light" />
       <div className="flex flex-col items-end">
-        <p className="pt-2 text-3xl">3478 + 9071</p>
+        <p className="pt-2 text-3xl">{display}</p>
       </div>
-      <div className="flex justify-between px-20 pt-36 sm:pt-28">
+      <div className="flex justify-between pt-14 sm:px-12 sm:pt-10">
         <button type="button">
           <FaHistory
             size={26}
