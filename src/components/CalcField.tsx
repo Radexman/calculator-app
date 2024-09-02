@@ -17,7 +17,7 @@ const CalcField = () => {
       <div className="flex flex-col items-end">
         <p className="pt-2 text-3xl">{display}</p>
       </div>
-      <div className="flex justify-between pb-4 pt-32 sm:px-12">
+      <div className="flex justify-between pb-4 pt-[50%] sm:px-10">
         <button onClick={() => dispatch(clear())} type="button">
           <FaHistory
             size={26}

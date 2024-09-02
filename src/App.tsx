@@ -1,9 +1,6 @@
 import "./App.css";
 import CalcField from "./components/CalcField";
 import NumPad from "./components/NumPad";
-// import { Counter } from "./features/counter/Counter";
-// import { Quotes } from "./features/quotes/Quotes";
-// import logo from "./logo.svg";
 
 const App = () => {
   return (
@@ -13,7 +10,7 @@ const App = () => {
           <div className="h-1/2">
             <CalcField />
           </div>
-          <div className="rounded-none bg-gray-darker shadow-2xl sm:h-auto sm:rounded-b-2xl">
+          <div className="h-1/2 rounded-none bg-gray-darker shadow-2xl sm:h-auto sm:rounded-b-2xl">
             <NumPad />
           </div>
         </div>

@@ -15,7 +15,7 @@ const NumPad = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="grid grid-cols-4 grid-rows-5 gap-2 rounded-b-2xl p-7 shadow-2xl">
+    <div className="grid grid-cols-4 grid-rows-5 gap-2 rounded-b-2xl p-7">
       <button
         onClick={() => dispatch(clear())}
         type="button"
